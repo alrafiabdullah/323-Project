@@ -11,8 +11,7 @@ from env_log import add_record
 app = Flask(__name__)
 app.debug = True 
 
-while True:
-	add_record()
+add_record()
 
 @app.route("/hello")
 def hello():
