@@ -58,7 +58,7 @@ def get_records():
 		from_date_str   = time_from.strftime("%Y-%m-%d %H:%M")
 		to_date_str	    = time_to.strftime("%Y-%m-%d %H:%M")
 
-	conn=sqlite3.connect('/var/www/roomAppF/roomAppF.db')
+	conn=sqlite3.connect('/home/abdullah/323-Project/roomAppF.db')
 	curs=conn.cursor()
 	curs.execute("SELECT * FROM temperatures WHERE rDateTime BETWEEN ? AND ?", (from_date_str, to_date_str))
 	temperatures 	= curs.fetchall()
