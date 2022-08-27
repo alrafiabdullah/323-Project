@@ -6,8 +6,6 @@ import time
 import datetime
 import sqlite3
 
-from env_log import add_record
-
 app = Flask(__name__)
 app.debug = True 
 
