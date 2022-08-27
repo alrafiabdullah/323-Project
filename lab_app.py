@@ -61,12 +61,12 @@ app = Flask(__name__)
 app.debug = True  # Make this False if you are no longer debugging
 
 
-@app.route("/")
+@app.route("/hello")
 def hello():
     return "Hello World!"
 
 
-@app.route("/lab_temp")
+@app.route("/")
 def lab_temp():
     humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.AM2302, 17)
     if humidity is not None and temperature is not None:
