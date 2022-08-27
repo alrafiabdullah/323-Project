@@ -21,7 +21,7 @@ def room_temp():
 	else:
 		return render_template("no_sensor.html")
 		
-@app.route("/room_env_db", methods=['GET'])
+@app.route("/details", methods=['GET'])
 def room_env_db():
 	temperatures, humidities, from_date_str, to_date_str = get_records()
 	#return render_template("room_env_db.html",temp=temperatures,hum=humidities,temp_items= len(temperatures),hum_items= len(humidities))
