@@ -52,7 +52,7 @@ import arrow
 import sys
 import Adafruit_DHT
 import sqlite3
-import plotly.plotly as py
+import chart_studio.plotly as py
 from plotly.graph_objs import *
 
 MAIN_DIR = "/home/abdullah/323-Project"
