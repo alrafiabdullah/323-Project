@@ -27,5 +27,5 @@ def add_record():
 
 while True:
 	add_record()
-	# add a second delay
-	time.sleep(1)
+	# add a minute delay
+	time.sleep(60)
