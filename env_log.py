@@ -23,3 +23,6 @@ def add_record():
 	else:
 		log_values("1", -999, -999)
 	return
+
+while True:
+	add_record()
