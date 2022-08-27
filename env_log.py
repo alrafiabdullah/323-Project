@@ -2,6 +2,7 @@
 import sqlite3
 import sys
 import Adafruit_DHT
+import time
 
 def log_values(sensor_id, temp, hum):
 	conn=sqlite3.connect('/home/abdullah/323-Project/roomAppF.db')  
@@ -26,3 +27,5 @@ def add_record():
 
 while True:
 	add_record()
+	# add a second delay
+	time.sleep(1)
