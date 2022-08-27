@@ -55,6 +55,8 @@ import sqlite3
 import plotly.plotly as py
 from plotly.graph_objs import *
 
+MAIN_DIR = "/home/abdullah/323-Project"
+
 app = Flask(__name__)
 app.debug = True  # Make this False if you are no longer debugging
 
@@ -157,7 +159,7 @@ def get_records():
         to_date_utc = arrow.get(to_date_obj, timezone).to(
             'Etc/UTC').strftime("%Y-%m-%d %H:%M")
 
-    conn = sqlite3.connect('/var/www/lab_app/lab_app.db')
+    conn = sqlite3.connect(f'{MAIN_DIR}/lab_app.db')
     curs = conn.cursor()
     curs.execute("SELECT * FROM temperatures WHERE rDateTime BETWEEN ? AND ?",
                  (from_date_utc.format('YYYY-MM-DD HH:mm'), to_date_utc.format('YYYY-MM-DD HH:mm')))
