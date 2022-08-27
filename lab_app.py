@@ -53,7 +53,8 @@ import sys
 import Adafruit_DHT
 import sqlite3
 import chart_studio.plotly as py
-from chart_studio.graph_objs import *
+# from plotly.graph_objs import Figure, Scatter, Data, XAxis, YAxis, Layout
+from plotly.offline import plot
 
 MAIN_DIR = "/home/abdullah/323-Project"
 
@@ -196,32 +197,32 @@ def to_plotly():
         # so that Plotly respects it
         time_series_humidity_values.append(round(record[2], 2))
 
-    temp = Scatter(
+    temp = plot.Scatter(
         x=time_series_adjusted_temperatures,
         y=time_series_temperature_values,
         name='Temperature'
     )
-    hum = Scatter(
+    hum = plot.Scatter(
         x=time_series_adjusted_humidities,
         y=time_series_humidity_values,
         name='Humidity',
         yaxis='y2'
     )
 
-    data = Data([temp, hum])
+    data = plot.Data([temp, hum])
 
-    layout = Layout(
+    layout = plot.Layout(
         title="Temperature and humidity in Peter's lab",
-        xaxis=XAxis(
+        xaxis=plot.XAxis(
             type='date',
             autorange=True
         ),
-        yaxis=YAxis(
+        yaxis=plot.YAxis(
             title='Celcius',
             type='linear',
             autorange=True
         ),
-        yaxis2=YAxis(
+        yaxis2=plot.YAxis(
             title='Percent',
             type='linear',
             autorange=True,
@@ -230,7 +231,7 @@ def to_plotly():
         )
 
     )
-    fig = Figure(data=data, layout=layout)
+    fig = plot.Figure(data=data, layout=layout)
     plot_url = py.plot(fig, filename='lab_temp_hum')
 
     return plot_url
